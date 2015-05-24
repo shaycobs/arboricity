@@ -55,33 +55,38 @@ public class GraphParser {
 	         
 	         doc.getDocumentElement().normalize();
 	         
-	         System.out.println("arboricity: " + 
-	        		 doc.getElementsByTagName("arboricity").item(0).getTextContent());
+	         // Get arboricity
 	         int arboricity = Integer.parseInt(doc.getElementsByTagName("arboricity").item(0).getTextContent());
+	         ArboricityLogger.getInstance().log(Level.INFO, "GraphParser",
+					 "parseXML", "Graph arboricity: " + arboricity);
 	         
+	         // Get vertices
 	         Node node = doc.getElementsByTagName("vertices").item(0);
 	         NodeList nList = null;
 	         if (node.getNodeType() == Node.ELEMENT_NODE) {
 	        	 nList = ((Element) node).getElementsByTagName("vertex");
-	        	 System.out.println("----------------------------");
 		         for (int i = 0; i < nList.getLength(); i++) {
 		            Node nNode = nList.item(i);
-		            System.out.println("\nCurrent Element :" 
-		               + nNode.getNodeName());
-		            System.out.println("vertex: " + nNode.getTextContent());
 		            
+		            ArboricityLogger.getInstance().log(Level.INFO, "GraphParser",
+							 "parseXML", "Add vertex: " + nNode.getTextContent());
+		            
+		            // Get next vertex
 		            ArboricityVertex v = new ArboricityVertex(nNode.getTextContent(), arboricity, nList.getLength());
 		            graph.addVertex(v);
 		         }
 		         
 		         NodeList edgesList = ((Element)doc.getElementsByTagName("edges").item(0)).getElementsByTagName("edge");
-		         System.out.println("----------------------------");
+		         
+		         // Get edges
 		         for (int i = 0; i < edgesList.getLength(); i++) {
 		        	 Node edgeNode = edgesList.item(i);
-		        	 System.out.println("\nCurrent Element :" 
-				               + edgeNode.getNodeName());
 		        	 NodeList vertexNodeList = ((Element) edgeNode).getElementsByTagName("vertex");
 		        	 
+		        	 ArboricityLogger.getInstance().log(Level.INFO, "GraphParser",
+							 "parseXML", "Add edge: {" + vertexNodeList.item(0).getTextContent() + ", " + vertexNodeList.item(1).getTextContent() + "}");
+		        	 
+		        	 // Add new edge to graph
 		        	 graph.addEdge(getVertexByName(graph, vertexNodeList.item(0).getTextContent()),
 		        			 getVertexByName(graph, vertexNodeList.item(1).getTextContent()));
 		         }
