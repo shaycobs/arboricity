@@ -1,0 +1,16 @@
+מאי 25, 2015 1:12:32 AM GraphParser parseXML
+INFO: Parsing graph from input.xml
+מאי 25, 2015 1:12:32 AM GraphParser parseXML
+INFO: Graph arboricity: 1
+מאי 25, 2015 1:12:32 AM GraphParser parseXML
+INFO: Add vertex: v1
+מאי 25, 2015 1:12:32 AM GraphParser parseXML
+INFO: Add vertex: v2
+מאי 25, 2015 1:12:32 AM GraphParser parseXML
+INFO: Add vertex: v3
+מאי 25, 2015 1:12:32 AM GraphParser parseXML
+INFO: Add edge: {v1, v2}
+מאי 25, 2015 1:12:32 AM GraphParser parseXML
+INFO: Add edge: {v1, v3}
+מאי 25, 2015 1:12:32 AM GraphParser parseXML
+INFO: Add edge: {v2, v3}
