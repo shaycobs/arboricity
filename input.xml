@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graph>
+	<arboricity>1</arboricity>
+	<vertices>
+		<vertex>v1</vertex>
+		<vertex>v2</vertex>
+		<vertex>v3</vertex>
+	</vertices>
+	<edges>
+		<edge>
+			<vertex>v1</vertex>
+			<vertex>v2</vertex>
+		</edge>
+		<edge>
+			<vertex>v1</vertex>
+			<vertex>v3</vertex>
+		</edge>
+		<edge>
+			<vertex>v2</vertex>
+			<vertex>v3</vertex>
+		</edge>
+	</edges>
+</graph>
